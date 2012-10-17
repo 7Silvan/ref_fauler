@@ -30,7 +30,14 @@ public class MainClass {
 
         System.out.println("////////////////////////////////////////");
 
+        System.out.println(customer.htmlStatement());
+
+        System.out.println("////////////////////////////////////////");
+
         customer.setRentals(new ArrayList<Rental>());
         System.out.println(customer.statement());
+
+        System.out.println("////////////////////////////////////////");
+        System.out.println(customer.htmlStatement());
     }
 }

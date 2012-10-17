@@ -29,6 +29,20 @@ public class CustomerTest {
             "Учет аренды для EmptyCustomer\n" +
             "Сумма задолженности составляет 0.0\n" +
             "Вы заработали 0 очков за активность";
+    private final String exampleOfHtmlStatement = 
+            "<H1>Операции аренды для <EM>Alan</EM></H1><P>\n" +
+            "Ratatoile: 14.0<BR>\n" +
+            "Wanhelsing: 60.0<BR>\n" +
+            "Robocop: 42.0<BR>\n" +
+            "Dracula: 2.0<BR>\n" +
+            "Tom and Jerry: 3.0<BR>\n" +
+            "Revolver: 1.5<BR>\n" +
+            "<P>Ваша задолженность составляет <EM>122.5</EM><P>\n" +
+            "На этой аренде вы заработали <EM>7<EM> очков за активность<P>";
+    private final String exampleOfEmptyHtmlStatement =
+            "<H1>Операции аренды для <EM>EmptyCustomer</EM></H1><P>\n" +
+            "<P>Ваша задолженность составляет <EM>0.0</EM><P>\n" +
+            "На этой аренде вы заработали <EM>0<EM> очков за активность<P>";
 
 
     private Customer customer;
@@ -71,5 +85,24 @@ public class CustomerTest {
     public void statement_shouldReturnEmptyTemplateIfThereIsNoRentals() throws Exception {
         Customer customer1 = new Customer("EmptyCustomer");
         Assert.assertEquals("Returning lines of empty report properly", exampleOfEmptyStatement, customer1.statement());
+    }
+
+    /**
+     * @verifies return lines of report
+     * @see Customer#htmlStatement()
+     */
+    @Test
+    public void htmlStatement_shouldReturnLinesOfReport() throws Exception {
+        Assert.assertEquals("Returning lines of html report properly", exampleOfHtmlStatement, customer.htmlStatement());
+    }
+
+    /**
+     * @verifies return empty template if there is no rentals
+     * @see Customer#htmlStatement()
+     */
+    @Test
+    public void htmlStatement_shouldReturnEmptyTemplateIfThereIsNoRentals() throws Exception {
+        Customer customer1 = new Customer("EmptyCustomer");
+        Assert.assertEquals("Returning lines of empty html report properly", exampleOfEmptyHtmlStatement, customer1.htmlStatement());
     }
 }

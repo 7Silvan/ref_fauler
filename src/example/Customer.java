@@ -50,14 +50,10 @@ public class Customer {
      * @should return empty template if there is no rentals
      */
     public String statement() {
-        int frequentRenterPoints = 0;
         Iterator rentals = this.rentals.iterator();
         String result = "Учет аренды для " + getName() + "\n";
         while (rentals.hasNext()) {
             Rental each = (Rental) rentals.next();
-            frequentRenterPoints += each.getFrequentRenterPoints();
-
-
             // показать результаты для этой аренды
             result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
         }
@@ -65,7 +61,7 @@ public class Customer {
         // добавить нижний колонтитул
         result += "Сумма задолженности составляет " +
                 String.valueOf(getTotalCharge()) + "\n";
-        result += "Вы заработали " + String.valueOf(frequentRenterPoints) +
+        result += "Вы заработали " + String.valueOf(getTotalFrequentRenterPoints()) +
                 " очков за активность";
         return result;
     }
@@ -77,6 +73,52 @@ public class Customer {
             Rental each = (Rental) rentals.next();
             result += each.getCharge();
         }
+        return result;
+    }
+                                                  
+    private int getTotalFrequentRenterPoints() {
+        int result = 0;
+        Iterator rentals = this.rentals.iterator();
+        while (rentals.hasNext()) {
+            Rental each = (Rental) rentals.next();
+            result += each.getFrequentRenterPoints();
+        }
+        return result;
+    }
+
+    /**
+     * Makes reports about how many paying have customer for renting movies
+     * @return string as lines, separated with \n,
+     * like:
+     * <tt>
+     * <H1>Операции аренды для <EM>Alan</EM></H1><P>
+     * Ratatoile: 14.0<BR>
+     * Wanhelsing: 60.0<BR>
+     * Robocop: 42.0<BR>
+     * Dracula: 2.0<BR>
+     * Tom and Jerry: 3.0<BR>
+     * Revolver: 1.5<BR>
+     * <P>Ваша задолженность составляет <EM>122.5</EM><P>
+     * На этой аренде вы заработали <EM>7<EM> очков за активность<P>
+     * </tt>
+     * @should return lines of report
+     * @should return empty template if there is no rentals
+     */
+    public String htmlStatement() {
+        Iterator rentals = this.rentals.iterator();
+        String result = "<H1>Операции аренды для <EM>" + getName() +
+                "</EM></H1><P>\n";
+        while (rentals.hasNext()) {
+            Rental each = (Rental) rentals.next();
+            // показать результаты по каждой аренде
+            result += each.getMovie().getTitle() + ": " +
+                    String.valueOf(each.getCharge()) + "<BR>\n"; 
+        }
+        // добавить нижний колонтитул
+        result += "<P>Ваша задолженность составляет <EM>" +
+                String.valueOf(getTotalCharge()) + "</EM><P>\n";
+        result += "На этой аренде вы заработали <EM>" +
+                String.valueOf(getTotalFrequentRenterPoints()) + "<EM> очков за активность<P>";
         return result;
     }
 
