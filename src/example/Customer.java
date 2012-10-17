@@ -55,10 +55,7 @@ public class Customer {
         Iterator rentals = this.rentals.iterator();
         String result = "Учет аренды для " + getName() + "\n";
         while (rentals.hasNext()) {
-            double thisAmount = 0;
             Rental each = (Rental) rentals.next();
-            
-            thisAmount = amountFor(each);
 
             // добавить очки для активного арендатора
             frequentRenterPoints++;
@@ -68,8 +65,8 @@ public class Customer {
                 frequentRenterPoints++;
             
             // показать результаты для этой аренды
-            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
-            totalAmount += thisAmount;
+            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
+            totalAmount += each.getCharge();
         }
         
         // добавить нижний колонтитул
@@ -78,9 +75,5 @@ public class Customer {
         result += "Вы заработали " + String.valueOf(frequentRenterPoints) +
                 " очков за активность";
         return result;
-    }
-
-    private double amountFor(Rental aRental) {
-        return aRental.getCharge();
     }
 }
