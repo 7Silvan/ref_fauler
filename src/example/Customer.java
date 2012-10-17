@@ -56,14 +56,9 @@ public class Customer {
         String result = "Учет аренды для " + getName() + "\n";
         while (rentals.hasNext()) {
             Rental each = (Rental) rentals.next();
+            frequentRenterPoints += getFrequentRenterPoints();
 
-            // добавить очки для активного арендатора
-            frequentRenterPoints++;
-            // бонус за аренду новинки на два дня
-            if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
-                    each.getDaysRented() > 1)
-                frequentRenterPoints++;
-            
+
             // показать результаты для этой аренды
             result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
             totalAmount += each.getCharge();
@@ -76,4 +71,6 @@ public class Customer {
                 " очков за активность";
         return result;
     }
+
+
 }
