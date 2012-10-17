@@ -50,7 +50,6 @@ public class Customer {
      * @should return empty template if there is no rentals
      */
     public String statement() {
-        double totalAmount = 0;
         int frequentRenterPoints = 0;
         Iterator rentals = this.rentals.iterator();
         String result = "Учет аренды для " + getName() + "\n";
@@ -61,14 +60,23 @@ public class Customer {
 
             // показать результаты для этой аренды
             result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
-            totalAmount += each.getCharge();
         }
         
         // добавить нижний колонтитул
         result += "Сумма задолженности составляет " +
-                String.valueOf(totalAmount) + "\n";
+                String.valueOf(getTotalCharge()) + "\n";
         result += "Вы заработали " + String.valueOf(frequentRenterPoints) +
                 " очков за активность";
+        return result;
+    }
+
+    private double getTotalCharge() {
+        double result = 0;
+        Iterator rentals = this.rentals.iterator();
+        while (rentals.hasNext()) {
+            Rental each = (Rental) rentals.next();
+            result += each.getCharge();
+        }
         return result;
     }
 
