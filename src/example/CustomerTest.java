@@ -26,7 +26,7 @@ public class CustomerTest {
             "Сумма задолженности составляет 122.5\n" +
             "Вы заработали 7 очков за активность";
     private final String exampleOfEmptyStatement =
-            "Учет аренды для Alan\n" +
+            "Учет аренды для EmptyCustomer\n" +
             "Сумма задолженности составляет 0.0\n" +
             "Вы заработали 0 очков за активность";
 
@@ -70,6 +70,6 @@ public class CustomerTest {
     @Test
     public void statement_shouldReturnEmptyTemplateIfThereIsNoRentals() throws Exception {
         Customer customer1 = new Customer("EmptyCustomer");
-        Assert.assertEquals("Returning lines of report properly", exampleOfStatement, customer.statement());
+        Assert.assertEquals("Returning lines of empty report properly", exampleOfEmptyStatement, customer1.statement());
     }
 }
