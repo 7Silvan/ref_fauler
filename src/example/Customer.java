@@ -56,7 +56,7 @@ public class Customer {
         String result = "Учет аренды для " + getName() + "\n";
         while (rentals.hasNext()) {
             Rental each = (Rental) rentals.next();
-            frequentRenterPoints += getFrequentRenterPoints();
+            frequentRenterPoints += each.getFrequentRenterPoints();
 
 
             // показать результаты для этой аренды

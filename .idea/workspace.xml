@@ -58,10 +58,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Customer.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Customer.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/example/Customer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="0" selection-start="2007" selection-end="2007" vertical-scroll-proportion="0.0">
+            <state line="58" column="41" selection-start="1472" selection-end="1472" vertical-scroll-proportion="0.30847457">
               <folding />
             </state>
           </provider>
@@ -94,10 +94,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rental.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Rental.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/example/Rental.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="0" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.8559322">
+            <state line="63" column="44" selection-start="1540" selection-end="1540" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -127,8 +127,8 @@
         <option value="$PROJECT_DIR$/src/MainClass.java" />
         <option value="$PROJECT_DIR$/src/runner/MainClass.java" />
         <option value="$PROJECT_DIR$/src/example/CustomerTest.java" />
-        <option value="$PROJECT_DIR$/src/example/Customer.java" />
         <option value="$PROJECT_DIR$/src/example/Rental.java" />
+        <option value="$PROJECT_DIR$/src/example/Customer.java" />
       </list>
     </option>
   </component>
@@ -740,16 +740,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/example/Customer.java">
+    <entry file="file://$PROJECT_DIR$/src/example/Rental.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="0" selection-start="2007" selection-end="2007" vertical-scroll-proportion="0.0">
+        <state line="63" column="44" selection-start="1540" selection-end="1540" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/example/Rental.java">
+    <entry file="file://$PROJECT_DIR$/src/example/Customer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.8559322">
+        <state line="58" column="41" selection-start="1472" selection-end="1472" vertical-scroll-proportion="0.30847457">
           <folding />
         </state>
       </provider>
