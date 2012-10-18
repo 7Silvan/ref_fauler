@@ -32,33 +32,10 @@ public class Rental {
     }
 
     double getCharge() {
-        double result = 0;
-        switch (getMovie().getPriceCode()) {
-            case Movie.REGULAR:
-                result += 2;
-                if (getDaysRented() > 2)
-                    result += (getDaysRented() - 2) * 1.5;
-                break;
-            case Movie.NEW_RELEASE:
-                result += getDaysRented() * 3;
-                break;
-            case Movie.CHILDRENS:
-                result += 1.5;
-                if (getDaysRented() > 3)
-                    result += (getDaysRented() - 3) * 1.5;
-                break;
-        }
-
-        return result;
+        return movie.getCharge(daysRented);
     }
 
     int getFrequentRenterPoints() {
-        // добавить очки для активного арендатора
-        if ((getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
-                getDaysRented() > 1)
-            // бонус за аренду новинки на два дня
-            return 2;
-        else
-            return 1;
+        return movie.getFrequentRenterPoints(daysRented);
     }
 }
