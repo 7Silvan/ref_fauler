@@ -52,12 +52,6 @@ public class Movie {
     }
 
     public int getFrequentRenterPoints(int daysRented) {
-        // добавить очки для активного арендатора
-        if ((getPriceCode() == Movie.NEW_RELEASE) &&
-                daysRented > 1)
-            // бонус за аренду новинки на два дня
-            return 2;
-        else
-            return 1;
+        return price.getFrequentRenterPoints(daysRented);
     }
 }
